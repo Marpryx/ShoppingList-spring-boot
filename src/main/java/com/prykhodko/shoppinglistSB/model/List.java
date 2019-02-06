@@ -13,19 +13,22 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "list")
+@Entity //used to mark the class as a persistent Java class
+@Table(name = "list") //used to provide the details of the table that this entity will be mapped to
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
-        allowGetters = true)
+        allowGetters = true) //is a Jackson annotation.
+// Spring Boot uses Jackson for Serializing and Deserializing Java objects to and from JSON
+
 @Getter
 @Setter
 public class List implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id //annotation is used to define the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //used to define the primary key generation strategy
     private Long id;
 
-    @NotBlank
+    @NotBlank //used to validate that the annotated field is not null or empty
     private String item;
 
     @NotBlank
@@ -37,8 +40,10 @@ public class List implements Serializable {
     @NotBlank
     private String price;
 
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false, updatable = false) //used to define the properties of the column that will be mapped to the annotated field
+    @Temporal(TemporalType.TIMESTAMP) //used with java.util.Date and java.util.Calendar classes.
+    // It converts the date and time values from Java Object to compatible database type and vice versa
+
     @CreatedDate
     private Date createdAt;
 
