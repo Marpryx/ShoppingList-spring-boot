@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////
+// ListItems model class has following fields:                          //
+// id: Primary Key with Auto Increment                                  //
+// item: The title of the item (NOT NULL field)                         //
+// details: The details of the item(product) (NOT NULL field)           //
+// amount: The amount of items that should be bought (NOT NULL field)   //
+// price: The price of the item (NOT NULL field)                        //
+//                                                                      //
+//////////////////////////////////////////////////////////////////////////
+
 package com.prykhodko.shoppinglistSB.model;
 
 
@@ -8,6 +18,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -30,10 +41,10 @@ public class ListItems implements Serializable {
     @NotBlank
     private String details;
 
-    @NotBlank
+    @NotNull
     private int amount;
 
-    @NotBlank
+    @NotNull
     private double price;
 
     @Column(nullable = false, updatable = false) //used to define the properties of the column that will be mapped to the annotated field
