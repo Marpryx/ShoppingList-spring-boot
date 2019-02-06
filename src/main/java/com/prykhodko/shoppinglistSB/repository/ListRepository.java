@@ -6,7 +6,7 @@
 
 package com.prykhodko.shoppinglistSB.repository;
 
-import com.prykhodko.shoppinglistSB.model.List;
+import com.prykhodko.shoppinglistSB.model.ListItems;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +17,6 @@ import org.springframework.stereotype.Repository;
  * Methods are already implemented by Spring Data JPA’s SimpleJpaRepository
  * This implementation is plugged in by Spring automatically at runtime.
  */
-public interface ListRepository extends JpaRepository<List, Long> {
+public interface ListRepository extends JpaRepository<ListItems, Long> {
 
 }
